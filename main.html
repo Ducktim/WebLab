@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!кто-то еще пользуется ie?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!адаптивность текста>
+    <link rel="stylesheet" href="style.css">
+    <!подключение css>
+    <title>lab</title>
+</head>
+<body>
+<main class="wrapper">
+    <header class="header">
+        <span>Вариант 1901 </span>
+        <span> Вацет Мария P32111</span>
+    </header>
+    <div class="content">
+        <!https://rvlasveld.github.io/blog/2013/07/02/creating-interactive-graphs-with-svg-part-1/>
+        <svg width="300" height="300" class="svg-grapgh" xmlns="http://www.w3.org/2000/svg">
+            <! --оси>
+            <line class="axis" x1="0" x2="300" y1="150" y2="150" stroke="black"></line>
+            <line class="axis" x1="150" x2="150" y1="0" y2="300" stroke="black"></line>
+            <! --уголочки>
+            <polygon points="150,0 146,15 154,15" stroke="black"></polygon>
+            <polygon points="285,146 285,154 300,150" stroke="black"></polygon>
+            <! --x-->
+            <line class="coor-line" x1="200" x2="200" y1="153" y2="147" stroke="black"></line>
+            <line class="coor-line" x1="250" x2="250" y1="153" y2="147" stroke="black"></line>
+            <line class="coor-line" x1="100" x2="100" y1="153" y2="147" stroke="black"></line>
+            <line class="coor-line" x1="50" x2="50" y1="153" y2="147" stroke="black"></line>
+            <!--y -->
+            <line class="coor-line" x1="147" x2="153" y1="50" y2="50" stroke="black"></line>
+            <line class="coor-line" x1="147" x2="153" y1="100" y2="100" stroke="black"></line>
+            <line class="coor-line" x1="147" x2="153" y1="200" y2="200" stroke="black"></line>
+            <line class="coor-line" x1="147" x2="153" y1="250" y2="250" stroke="black"></line>
+            <! legends>
+            <style>
+                .legends {
+                    font-size: 15px;
+                }
+            </style>
+            <text class="legends" x="190" y="140">R/2</text>
+            <text class="legends" x="245" y="140">R</text>
+
+            <text class="legends" x="40" y="140">-R</text>
+            <text class="legends" x="85" y="140">-R/2</text>
+
+            <text class="legends" x="160" y="105">R/2</text>
+            <text class="legends" x="160" y="55">R</text>
+
+            <text class="legends" x="160" y="205">-R/2</text>
+            <text class="legends" x="160" y="255">-R</text>
+
+            <!-- square-->
+            <polygon class="svg-figure rectangle-figure" points="100,150 100,50 150,50, 150,150"
+                     fill="blue" fill-opacity="0.3" stroke="blue"></polygon>
+
+            <!-- circle-->
+            <path class="svg-figur e circle-figure" d="M 200 150 A 50 50, 90, 0, 0, 150 100 L 150 150 Z"
+                  fill="green" fill-opacity="0.3" stroke="green"></path>
+
+            <!-- triangle-->
+            <polygon class="svg-figure triangle-figure" points="50,150 150,150 150,250"
+                     fill="yellow" fill-opacity="0.3" stroke="yellow"></polygon>
+            <!flag>
+            <circle r="0" cx="150" cy="150" id="target-dot"></circle>
+            <td>
+        </svg>
+        <form id="inpform" action="script.php" class="validate_form" method="post"> <!-- координаты -->
+
+            <div class="enter-x"><b>Enter Х:</b><br>
+                <div class="column-1">
+                    <input type="radio" name="x_coordinate" class="x" id="x_value_-5" value="-5">-5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="x_coordinate" class="x" id="x_value_-4" value="-4">1<br>
+                    <input type="radio" name="x_coordinate" class="x" id="x_value_-3" value="-3">-4<br>
+                    <input type="radio" name="x_coordinate" class="x" id="x_value_-2" value="-2">-3
+                    <input type="radio" name="x_coordinate" class="x" id="x_value_-1" value="-1" checked>0
+                    <!-- выбран по дефолту-->
+                    <input type="radio" name="x_coordinate" class="x" id="x_value_0" value="0">2<br>
+                    <input type="radio" name="x_coordinate" class="x" id="x_value_1" value="1">-2<br>
+                    <input type="radio" name="x_coordinate" class="x" id="x_value_2" value="2">-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="x_coordinate" class="x" id="x_value_3" value="3">3<br>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <b>Enter Y:</b>
+                </div>
+                <div>
+                    <input type="text" name="y_coordinate" class="y field" placeholder="From -3 to 5.">
+                    <div class="error">
+
+                    </div>
+                </div>
+            </div>
+
+            <label for="r-value-select" class="form-label" style="margin: auto 5px auto 0;">
+                <div><strong>R: </strong></div>
+            </label>
+            <select id="r-value-select" name="r_value">
+                <option value="1">1</option>
+                <option>1.5</option>
+                <option>2</option>
+                <option>2.5</option>
+                <option>3</option>
+            </select>
+
+            <br><input type="submit" class="validate_button" value='Submit'/>
+            <input type="button" class="clear_button" onclick="deleteTable()" value='Clear'/>
+            <div class="feedback">
+                <button class="btn"> Submit</button>
+            </div>
+        </form>
+        <div class="table">
+            <td valign="top">   <!-- результаты -->
+                <div id="result_table_container">
+                    <table id="result_table" border="1" cellpadding="0" cellspacing="0" width="100%">
+                        <th>X</th>
+                        <th>Y</th>
+                        <th>R</th>
+                        <th>Hit fact</th>
+                        <th>Current time</th>
+                        <th>Script running time, sec</th>
+
+                    </table>
+                </div>
+            </td>
+        </div>
+        </tr>
+    </div>
+</main>
+<script type="module" src="js/index.js"></script>
+<script type="module" src="js/runningButton.js"></script>
+</body>
+</html>
