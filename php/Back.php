@@ -17,11 +17,11 @@
     date_default_timezone_set('Europe/Moscow');
     $currentTime = date("H:i:s");
     $session_start_time = microtime(true); //from start session
-
-    $x = (int) $_POST['x_value'];
-    $y = (float) str_replace(",", ".", $_POST['y_value']);
-    $r = (double) $_POST['r_value'];
-
+    $entityBody = file_get_contents('php://input');
+    $postArray = json_decode($entityBody);
+    $x = (int) $postArray->xValue;
+    $y = (float) str_replace(",", ".", $postArray->yValue);
+    $r = (double) $postArray->rValue;
     if (check_value($x, $y, $r)) {
         http_response_code(400); //error. false format of values
         return;
@@ -40,5 +40,4 @@
     array_push($_SESSION['history'], $output);
     $array[]=$output;
 
-    if ($_POST[test]==1) echo 'success;)';
     include "table.php";

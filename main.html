@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!кто-то еще пользуется ie?>
@@ -73,45 +72,74 @@
         <section id="inpform" action="script.php" class="validate_form" method="post"> <!-- координаты -->
             <div class="form-container">
                 <div class="enter-x"><b>Enter Х:</b><br>
-                    <div class="column-1">
-                        <input type="radio" name="x_coordinate" class="x" id="x_value_-5" value="-5">-5
-                        <input type="radio" name="x_coordinate" class="x" id="x_value_-4" value="-4">-4
-                        <input type="radio" name="x_coordinate" class="x" id="x_value_-3" value="-3">-3
-                        <input type="radio" name="x_coordinate" class="x" id="x_value_-2" value="-2">-2</br>
-                        <input type="radio" name="x_coordinate" class="x" id="x_value_-1" value="-1" >-1
-                        <!-- выбран по дефолту-->
-                        <input type="radio" name="x_coordinate" class="x" id="x_value_0" value="0"checked>0
-                        <input type="radio" name="x_coordinate" class="x" id="x_value_1" value="1">1
-                        <input type="radio" name="x_coordinate" class="x" id="x_value_2" value="2">2
-                        <input type="radio" name="x_coordinate" class="x" id="x_value_3" value="3">3
-                    </div>
+                    <form class="form-radioButton">
+                            <label>
+                                <input type="radio" name="radio" value="-3" checked/>
+                                <span>-3</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="radio" value="-2"/>
+                                <span>-2</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="radio" value="-1"/>
+                                <span>-1</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="radio" value="0"/>
+                                <span>0</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="radio" value="1"/>
+                                <span>1</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="radio" value="2"/>
+                                <span>2</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="radio" value="3"/>
+                                <span>3</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="radio" value="4"/>
+                                <span>4</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="radio" value="5"/>
+                                <span>5</span>
+                            </label>
+                    </form>
                 </div>
 
                 <div>
                     <div>
                         <b>Enter Y:</b>
                     </div>
-                    <div>
-                        <input type="text" name="y_coordinate" class="y field" placeholder="From -3 to 5.">
-                        <div class="error">
-
+                    <form id="y-value-form">
+                        <div class="switch-content first-input">
+                            <label class="switch">
+                                <input class="switch-input-text field" type="text">
+                            </label>
                         </div>
-                    </div>
+                        <div class="error"></div>
+                    </form>
                 </div>
 
                 <label for="r-value-select" class="form-label" style="margin: auto 5px auto 0;">
                     <div><strong>R: </strong></div>
                 </label>
                 <select id="r-value-select" name="r_value">
-                    <option value="1">1</option>
+                    <option>1</option>
                     <option>1.5</option>
                     <option>2</option>
                     <option>2.5</option>
                     <option>3</option>
                 </select>
                 <br>
-                <br><input type="submit" class="validate_button" value='Submit'/>
-                <input type="button" class="clear_button" onclick="deleteTable()" value='Clear'/>
+                <br>
+                <input type="button" class="validate_button" value='Submit'/>
+                <input type="button" class="clear_button" value='Clear'/>
             </div>
         </section>
         <div class="table">
@@ -124,15 +152,16 @@
                         <th>Hit fact</th>
                         <th>Current time</th>
                         <th>Script running time, sec</th>
-
                     </table>
                 </div>
             </td>
         </div>
         </tr>
     </div>
+    <div class="test">
+
+    </div>
 </main>
 <script type="module" src="js/index.js"></script>
-<script type="module" src="js/runningButton.js"></script>
 </body>
 </html>

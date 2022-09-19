@@ -1,7 +1,6 @@
-export const postRequest = (URL, body)=>{
+export const clearRequest = (URL) =>{
     fetch(URL, {
         method: 'POST',
-        body: JSON.stringify(body)
     })
         .then(response => response.text())
         .then(table => document.querySelector('#result_table').innerHTML=table);
