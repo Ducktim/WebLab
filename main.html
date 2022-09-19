@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!кто-то еще пользуется ie?>
@@ -12,11 +13,11 @@
     <!заголовок>
 </head>
 <body>
+<header class="header">
+    <span>Вариант 1901 </span>
+    <span> Вацет Мария P32111</span>
+</header>
 <main class="wrapper">
-    <header class="header">
-        <span>Вариант 1901 </span>
-        <span> Вацет Мария P32111</span>
-    </header>
     <div class="content">
         <!https://rvlasveld.github.io/blog/2013/07/02/creating-interactive-graphs-with-svg-part-1/>
         <svg class="svg-grapgh" xmlns="http://www.w3.org/2000/svg">
@@ -69,52 +70,50 @@
             <circle r="0" cx="150" cy="150" id="target-dot"></circle>
             <td>
         </svg>
-        <form id="inpform" action="script.php" class="validate_form" method="post"> <!-- координаты -->
-
-            <div class="enter-x"><b>Enter Х:</b><br>
-                <div class="column-1">
-                    <input type="radio" name="x_coordinate" class="x" id="x_value_-5" value="-5">-5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="x_coordinate" class="x" id="x_value_-4" value="-4">1<br>
-                    <input type="radio" name="x_coordinate" class="x" id="x_value_-3" value="-3">-4<br>
-                    <input type="radio" name="x_coordinate" class="x" id="x_value_-2" value="-2">-3
-                    <input type="radio" name="x_coordinate" class="x" id="x_value_-1" value="-1" checked>0
-                    <!-- выбран по дефолту-->
-                    <input type="radio" name="x_coordinate" class="x" id="x_value_0" value="0">2<br>
-                    <input type="radio" name="x_coordinate" class="x" id="x_value_1" value="1">-2<br>
-                    <input type="radio" name="x_coordinate" class="x" id="x_value_2" value="2">-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="x_coordinate" class="x" id="x_value_3" value="3">3<br>
-                </div>
-            </div>
-
-            <div>
-                <div>
-                    <b>Enter Y:</b>
-                </div>
-                <div>
-                    <input type="text" name="y_coordinate" class="y field" placeholder="From -3 to 5.">
-                    <div class="error">
-
+        <section id="inpform" action="script.php" class="validate_form" method="post"> <!-- координаты -->
+            <div class="form-container">
+                <div class="enter-x"><b>Enter Х:</b><br>
+                    <div class="column-1">
+                        <input type="radio" name="x_coordinate" class="x" id="x_value_-5" value="-5">-5
+                        <input type="radio" name="x_coordinate" class="x" id="x_value_-4" value="-4">-4
+                        <input type="radio" name="x_coordinate" class="x" id="x_value_-3" value="-3">-3
+                        <input type="radio" name="x_coordinate" class="x" id="x_value_-2" value="-2">-2</br>
+                        <input type="radio" name="x_coordinate" class="x" id="x_value_-1" value="-1" >-1
+                        <!-- выбран по дефолту-->
+                        <input type="radio" name="x_coordinate" class="x" id="x_value_0" value="0"checked>0
+                        <input type="radio" name="x_coordinate" class="x" id="x_value_1" value="1">1
+                        <input type="radio" name="x_coordinate" class="x" id="x_value_2" value="2">2
+                        <input type="radio" name="x_coordinate" class="x" id="x_value_3" value="3">3
                     </div>
                 </div>
-            </div>
 
-            <label for="r-value-select" class="form-label" style="margin: auto 5px auto 0;">
-                <div><strong>R: </strong></div>
-            </label>
-            <select id="r-value-select" name="r_value">
-                <option value="1">1</option>
-                <option>1.5</option>
-                <option>2</option>
-                <option>2.5</option>
-                <option>3</option>
-            </select>
+                <div>
+                    <div>
+                        <b>Enter Y:</b>
+                    </div>
+                    <div>
+                        <input type="text" name="y_coordinate" class="y field" placeholder="From -3 to 5.">
+                        <div class="error">
 
-            <br><input type="submit" class="validate_button" value='Submit'/>
-            <input type="button" class="clear_button" onclick="deleteTable()" value='Clear'/>
-            <div class="feedback">
-                <button class="btn"> Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <label for="r-value-select" class="form-label" style="margin: auto 5px auto 0;">
+                    <div><strong>R: </strong></div>
+                </label>
+                <select id="r-value-select" name="r_value">
+                    <option value="1">1</option>
+                    <option>1.5</option>
+                    <option>2</option>
+                    <option>2.5</option>
+                    <option>3</option>
+                </select>
+                <br>
+                <br><input type="submit" class="validate_button" value='Submit'/>
+                <input type="button" class="clear_button" onclick="deleteTable()" value='Clear'/>
             </div>
-        </form>
+        </section>
         <div class="table">
             <td valign="top">   <!-- результаты -->
                 <div id="result_table_container">

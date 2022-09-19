@@ -40,4 +40,5 @@
     array_push($_SESSION['history'], $output);
     $array[]=$output;
 
+    if ($_POST[test]==1) echo 'success;)';
     include "table.php";
